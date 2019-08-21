@@ -1,72 +1,123 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {setStopsValue} from '../../actions';
+import React from "react";
+import { connect } from "react-redux";
+import { setStopsValue } from "../../actions";
+import "./tickets-list-filter.css";
 
-const TicketsListFilter = ({stopsValue, setStopsValue}) => {
+const TicketsListFilter = ({ stopsValue, setStopsValue }) => {
   return (
     <div className="tickets-filter-wrapper">
-      <h2 lassName="tickets-filter-title">КОЛИЧЕСТВО ПЕРЕСАДОК</h2>
+      <h2 className="tickets-filter-title">Количество пересадок</h2>
 
       <ul className="tickets-filter-list">
+        {/* <label class="login-checkbox">
+<input type="checkbox" name="remember" class="visually-hidden">
+ <span class="checkbox-indicator"></span> Запомните меня
+</label> */}
         <li className="tickets-filter-list-item">
-          <input
-            id="chk-all"
-            type="checkbox"
-            defaultChecked={stopsValue.all}
-            onChange={() => setStopsValue("all")}
-            checked={stopsValue.all}
-          />
-          <label htmlFor="chk-all"> Все</label>
+          <label className="tickets-filter-list-item-label" htmlFor="chk-all">
+            <input
+              id="chk-all"
+              type="checkbox"
+              className="visually-hidden"
+              defaultChecked={stopsValue.all}
+              onChange={() => setStopsValue("all")}
+              checked={stopsValue.all}
+            />
+            <span className="checkbox-indicator" /> Все
+          </label>
+        </li>
+
+        <li className="tickets-filter-list-item">
+          <label className="tickets-filter-list-item-label" htmlFor="chk-0">
+            <input
+              id="chk-0"
+              type="checkbox"
+              className="visually-hidden"
+              onChange={() => setStopsValue("0")}
+              checked={stopsValue.zero}
+            />
+            <span className="checkbox-indicator" /> Без пересадок
+          </label>
         </li>
         <li className="tickets-filter-list-item">
-          <input
-            id="chk-0"
-            type="checkbox"
-            onChange={() => setStopsValue("0")}
-            checked={stopsValue.zero}
-          />
-          <label htmlFor="chk-0"> Без пересадок</label>
+          <label className="tickets-filter-list-item-label" htmlFor="chk-1">
+            <input
+              id="chk-1"
+              type="checkbox"
+              className="visually-hidden"
+  
+              onChange={() => setStopsValue("1")}
+              checked={stopsValue.one}
+            />
+            <span className="checkbox-indicator" /> 1 пересадка
+          </label>
         </li>
-        <li lassName="tickets-filter-list-item">
-          <input
-            id="chk-1"
-            type="checkbox"
-            onChange={() => setStopsValue("1")}
-            checked={stopsValue.one}
-          />
-          <label htmlFor="chk-1"> Одна пересадка</label>
+        <li className="tickets-filter-list-item">
+          <label className="tickets-filter-list-item-label" htmlFor="chk-2">
+            <input
+              id="chk-2"
+              type="checkbox"
+              className="visually-hidden"
+  
+              onChange={() => setStopsValue("2")}
+              checked={stopsValue.two}
+            />
+            <span className="checkbox-indicator" /> 2 пересадки
+          </label>
         </li>
-        <li lassName="tickets-filter-list-item">
+        <li className="tickets-filter-list-item">
+          <label className="tickets-filter-list-item-label" htmlFor="chk-3">
+            <input
+              id="chk-3"
+              type="checkbox"
+              className="visually-hidden"
+  
+              onChange={() => setStopsValue("3")}
+              checked={stopsValue.three}
+            />
+            <span className="checkbox-indicator" /> 3 пересадки
+          </label>
+        </li>
+        {/* <li className="tickets-filter-list-item">
           <input
             id="chk-2"
             type="checkbox"
+            className="visually-hidden"
             onChange={() => setStopsValue("2")}
             checked={stopsValue.two}
           />
-          <label htmlFor="chk-2"> Две пересадки</label>
+          <label 
+          className="tickets-filter-list-item-label"
+          htmlFor="chk-2"> 2 пересадки</label>
         </li>
         <li className="tickets-filter-list-item">
           <input
             id="chk-3"
             type="checkbox"
+            className="visually-hidden"
             onChange={() => setStopsValue("3")}
             checked={stopsValue.three}
           />
-          <label htmlFor="chk-3"> Три пересадки</label>
-        </li>
+          <label
+          className="tickets-filter-list-item-label"
+           htmlFor="chk-3"> 3 пересадки</label>
+        </li> */}
       </ul>
     </div>
   );
 };
 
-const mapStateToProps = ({stopsValue}) => {
+const mapStateToProps = ({ stopsValue }) => {
   return {
     stopsValue
-  }
-}
+  };
+};
 
 const mapDispatchToProps = {
   setStopsValue
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(TicketsListFilter);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TicketsListFilter);

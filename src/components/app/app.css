@@ -1,0 +1,16 @@
+body {
+    background-color: #F3F7FA;
+}
+.app-wrapp {
+    width: 754px;
+    margin: 0 auto;
+}
+.components-wrapper {
+    display: flex;
+}
+.app-logo-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom:50px;
+}

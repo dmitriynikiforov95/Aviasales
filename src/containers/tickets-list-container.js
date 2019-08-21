@@ -8,7 +8,7 @@ import { ticketsRequest, ticketsLoaded, ticketsError } from "../actions";
 
 class TicketsListContainer extends Component {
   componentDidMount() {
-    let data;
+    
     const {
       aviasalesService,
       // ticketsRequest,
@@ -18,22 +18,17 @@ class TicketsListContainer extends Component {
     aviasalesService
       .getTickets()
       .then(res => {
-        console.log(res);
-        data = res.tickets;
-        // ticketsRequest() // как можно переделать
-
-        ticketsLoaded(data);
+        ticketsLoaded(res.tickets);
       })
       .catch(error => {
         ticketsError(error.message);
       });
   }
 
-  // обработчик ошибки с сервера
 
   render() {
     const { tickets, isTicketsLoaded, error } = this.props;
-    const spinner = !isTicketsLoaded  && !error ? <Spinner /> : null;
+    const spinner = !isTicketsLoaded && !error ? <Spinner /> : null;
     const hasData = isTicketsLoaded || error;
     const errorMessage = error ? <ErrorIndicator /> : null;
     const content = hasData ? <TicketsList tickets={tickets} /> : null;
@@ -62,17 +57,29 @@ const sortByDuration = (a, b) => {
 function sortAndFilter(tickets, stopsValue, sortValue) {
   let newTickets = tickets;
 
-  for (let segment of newTickets) {
-    segment.summDuration = function() {
+  for (let ticket of newTickets) {
+    ticket.summDuration = function() {
       return this.segments.reduce((prev, curr) => {
         return prev + curr.duration;
       }, 0);
     };
   }
 
+  // Фильтруем билеты по количество пересадок в одну сторону
+
   newTickets = stopsValue.all
     ? tickets
     : tickets.filter(ticket => {
+        for (let segment of ticket.segments) {
+          if (!stopsValue[segment.stops.length]) {
+            return false;
+          }
+        }
+        return true;
+      });
+
+  // Вариант фильтрации билетов по обществу количеству пересадок
+  /* tickets.filter(ticket => {
         let ticketStopsQuantity = 0;
         for (let segment of ticket.segments) {
           ticketStopsQuantity += segment.stops.length;
@@ -81,7 +88,8 @@ function sortAndFilter(tickets, stopsValue, sortValue) {
           return true;
         }
         return false;
-      });
+      }); */
+
   if (sortValue === "sortByPrice") {
     newTickets = newTickets.sort(sortByPrice);
   } else if (sortValue === "sortByDuration") {
@@ -100,7 +108,7 @@ const mapStateToProps = ({
   return {
     tickets: sortAndFilter(tickets, stopsValue, sortValue),
     isTicketsLoaded,
-    error,
+    error
   };
 };
 
