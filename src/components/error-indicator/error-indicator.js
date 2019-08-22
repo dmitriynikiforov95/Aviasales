@@ -1,10 +1,13 @@
 import React from "react";
+import "./error-indicator.css";
 
 const ErrorIndicator = () => {
   return (
-    <div>
-      <div>Ошибка! Билеты на загружены</div>
-      <div>Перезагрузите страницу!</div>
+    <div className="error-indicator-wrapper">
+      <div className="error-message-wrapper">
+        <div className="error-message-title">Ошибка</div>
+        <div>Билеты не загружены <br/> Перезагрузите страницу!</div>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { AviasalesServiceConsumer } from "../aviasales-service-context";
 
-const withAviasalesService = () => Wrapped => {
+const withAviasalesService = Wrapped => {
   return props => {
     return (
       <AviasalesServiceConsumer>

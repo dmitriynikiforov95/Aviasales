@@ -9,10 +9,6 @@ const TicketsListFilter = ({ stopsValue, setStopsValue }) => {
       <h2 className="tickets-filter-title">Количество пересадок</h2>
 
       <ul className="tickets-filter-list">
-        {/* <label class="login-checkbox">
-<input type="checkbox" name="remember" class="visually-hidden">
- <span class="checkbox-indicator"></span> Запомните меня
-</label> */}
         <li className="tickets-filter-list-item">
           <label className="tickets-filter-list-item-label" htmlFor="chk-all">
             <input
@@ -45,7 +41,6 @@ const TicketsListFilter = ({ stopsValue, setStopsValue }) => {
               id="chk-1"
               type="checkbox"
               className="visually-hidden"
-  
               onChange={() => setStopsValue("1")}
               checked={stopsValue.one}
             />
@@ -58,7 +53,6 @@ const TicketsListFilter = ({ stopsValue, setStopsValue }) => {
               id="chk-2"
               type="checkbox"
               className="visually-hidden"
-  
               onChange={() => setStopsValue("2")}
               checked={stopsValue.two}
             />
@@ -71,37 +65,12 @@ const TicketsListFilter = ({ stopsValue, setStopsValue }) => {
               id="chk-3"
               type="checkbox"
               className="visually-hidden"
-  
               onChange={() => setStopsValue("3")}
               checked={stopsValue.three}
             />
             <span className="checkbox-indicator" /> 3 пересадки
           </label>
         </li>
-        {/* <li className="tickets-filter-list-item">
-          <input
-            id="chk-2"
-            type="checkbox"
-            className="visually-hidden"
-            onChange={() => setStopsValue("2")}
-            checked={stopsValue.two}
-          />
-          <label 
-          className="tickets-filter-list-item-label"
-          htmlFor="chk-2"> 2 пересадки</label>
-        </li>
-        <li className="tickets-filter-list-item">
-          <input
-            id="chk-3"
-            type="checkbox"
-            className="visually-hidden"
-            onChange={() => setStopsValue("3")}
-            checked={stopsValue.three}
-          />
-          <label
-          className="tickets-filter-list-item-label"
-           htmlFor="chk-3"> 3 пересадки</label>
-        </li> */}
       </ul>
     </div>
   );

@@ -15,16 +15,6 @@ input[type="checkbox"].visually-hidden {
     overflow: hidden;
 }
 
-ul {
-    padding: 0;
-    margin: 0;
-}
-
-ul li {
-    margin: 0
-}
-
-
 .tickets-filter-list {
     margin: 0;
     padding: 0;
@@ -35,17 +25,16 @@ ul li {
     width: 232px;
     min-height: 252px;
     padding-top: 20px;
-    margin-right:20px;
+    margin-right: 20px;
+    box-sizing: border-box;
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    box-sizing: border-box
 }
 
 .tickets-filter-title {
-
     width: 192px;
-    height: 12px;
+    min-height: 12px;
     margin: 0;
     margin-left: 20px;
     margin-bottom: 10px;
@@ -54,43 +43,31 @@ ul li {
     font-weight: 600;
     font-size: 12px;
     line-height: 12px;
-
     letter-spacing: 0.5px;
     text-transform: uppercase;
-
     color: #4A4A4A;
-
-
 }
 
 .tickets-filter-list-item {
+    width: 232px;
+    min-height: 40px;
+    margin: 0;
     padding-top: 10px;
     padding-left: 20px;
-    margin: 0;
-    width: 232px;
-    height: 40px;
     box-sizing: border-box;
 }
 
-.tickets-filter-list-item:last-child {
-    margin-bottom: 0;
-}
 
 .tickets-filter-list-item-label {
+    width: 112px;
+    min-height: 20px;
     position: relative;
     padding-left: 30px;
-
-
-   
-
-    width: 112px;
-    height: 20px;
     font-family: "Open Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
-
     color: #4A4A4A;
 }
 
@@ -104,17 +81,11 @@ ul li {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 20px;
     height: 20px;
-
-
-    bottom: 79.85%;
-
-    border: 1px solid #2196F3;
     box-sizing: border-box;
+    border: 1px solid #2196F3;
     border-radius: 2px;
-
 }
 
 .tickets-filter-list-item-label input[type="checkbox"]:focus+.checkbox-indicator {
@@ -124,19 +95,15 @@ ul li {
 }
 
 .tickets-filter-list-item-label input[type="checkbox"]:checked+.checkbox-indicator::before {
+    width: 12px;
+    height: 8px;
     content: "";
     position: absolute;
     top: 6px;
     bottom: 6px;
     right: 4px;
     left: 3px;
-
-    width: 12px;
-    height: 8px;
-
     background-image: url("../../svg/Shape.svg");
     background-repeat: no-repeat;
     background-position: 0 0;
 }
-
-

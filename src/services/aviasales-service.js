@@ -15,7 +15,4 @@ export default class AviasalesService {
 }
 
 
-// getResource("https://front-test.beta.aviasales.ru/search")
-// .then((res) => {
-//   console.log(res)
-// })
+

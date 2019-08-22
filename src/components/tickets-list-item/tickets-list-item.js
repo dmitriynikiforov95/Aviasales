@@ -70,10 +70,4 @@ const TicketsListItem = ({ ticket }) => {
   );
 };
 
-// <p>
-//                 {ticket.origin}
-//                 {ticket.destination}
-//               </p>
-//               <b>В ПУТИ{ticket.duration}</b>
-
 export default TicketsListItem;

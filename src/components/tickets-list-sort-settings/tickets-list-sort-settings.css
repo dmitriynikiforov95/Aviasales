@@ -1,19 +1,24 @@
+.tickets-sort-settings-wrapper {
+  display: flex;
+  margin-bottom: 20px;
+}
 
+.tickets-sort-settings-btn {
+  width: 252px;
+  min-height: 50px;
+  border: 1px solid #DFE5EC;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: #FFFFFF;
+}
 
-  .tickets-sort-settings-wrapper {
-    display: flex;
-margin-bottom: 20px;
-  }
-
-  .tickets-sort-settings-btn {
-width:252px;
-min-height: 50px;
-background: #FFFFFF;
-
-border: 1px solid #DFE5EC;
-box-sizing: border-box;
-  } 
-  .tickets-sort-settings-btn.active {
-    background: #2196F3;
-    color: white;
-  }
+.tickets-sort-settings-btn.active {
+  background: #2196F3;
+  color: white;
+}

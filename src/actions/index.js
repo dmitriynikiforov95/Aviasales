@@ -1,12 +1,4 @@
 
-
-const ticketsRequest = () => {
-    return {
-        type: 'FETCH_TICKETS_REQUEST',
-        payload:true
-    }
-}
-
 const ticketsLoaded = (newTickets) => {
     return {
       type: 'FETCH_TICKETS_SUCCESS',
@@ -37,7 +29,6 @@ const setStopsValue = (stops) => {
 
 
 export {
-    ticketsRequest,
     ticketsLoaded,
     ticketsError,
     setStopsValue,

@@ -38,7 +38,7 @@ class TicketsListSortSettings extends Component {
           onClick={e =>
             this.setActiveButton("price", "duration", "sortByPrice")
           }
-          value="САМЫЙ ДЕШЕВЫЙ"
+          value="Самый дешевый"
         />
 
         <input
@@ -51,7 +51,7 @@ class TicketsListSortSettings extends Component {
           onClick={e =>
             this.setActiveButton("duration", "price", "sortByDuration")
           }
-          value="САМЫЙ БЫСТРЫЙ"
+          value="Самый быстрый"
         />
       </div>
     );

@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className="app-wrapp">
       <div className="app-logo-wrapper">
-        <img src={logo} className="app-logo" alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
       <div className="components-wrapper">
         <div>

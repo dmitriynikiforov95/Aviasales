@@ -4,14 +4,13 @@ import withAviasalesService from "../components/hoc";
 import ErrorIndicator from "../components/error-indicator";
 import Spinner from "../components/spinner/";
 import { connect } from "react-redux";
-import { ticketsRequest, ticketsLoaded, ticketsError } from "../actions";
+import { ticketsLoaded, ticketsError } from "../actions";
 
 class TicketsListContainer extends Component {
   componentDidMount() {
     
     const {
       aviasalesService,
-      // ticketsRequest,
       ticketsLoaded,
       ticketsError
     } = this.props;
@@ -114,11 +113,10 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = {
   ticketsLoaded,
-  ticketsRequest,
   ticketsError
 };
 
-export default withAviasalesService()(
+export default withAviasalesService(
   connect(
     mapStateToProps,
     mapDispatchToProps

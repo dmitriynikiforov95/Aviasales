@@ -44,12 +44,6 @@ const setStopsValue = (state, filter) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_TICKETS_REQUEST":
-      return {
-        ...state,
-        isTicketsLoaded: false,
-        
-      };
     case "FETCH_TICKETS_SUCCESS":
       return {
         ...state,
