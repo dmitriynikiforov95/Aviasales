@@ -2,7 +2,7 @@
   "name": "aviasales",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dmitriynikiforov95.github.io/test-aviasales",
+  "homepage": "https://dmitriynikiforov95.github.io/aviasales-test-task-app",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

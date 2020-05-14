@@ -1,7 +1,13 @@
 body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
     background-color: #F3F7FA;
 }
-.app-wrapp {
+
+.app-container {
     width: 754px;
     margin: 0 auto;
 }
@@ -10,9 +16,23 @@ body {
     width: 60px;
     height: 60px;
     margin: 0 auto;
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
 
 .components-wrapper {
     display: flex;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
 }

@@ -1,16 +1,16 @@
-.tickets-sort-settings-wrapper {
+.container {
   display: flex;
   margin-bottom: 20px;
 }
 
-.tickets-sort-settings-btn {
+.btn {
   width: 252px;
   min-height: 50px;
   border: 1px solid #DFE5EC;
   box-sizing: border-box;
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 600;
+  font-family:inherit;
+  font-style: inherit;
+  font-weight: inherit;
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.5px;
@@ -18,7 +18,8 @@
   background: #FFFFFF;
 }
 
-.tickets-sort-settings-btn.active {
+.activeBtn {
   background: #2196F3;
   color: white;
+  outline: none;
 }

@@ -1,14 +1,13 @@
 import React from "react";
-import TicketsListItem from "../tickets-list-item";
+import TicketListItem from "../ticket-list-item";
 
-
-const TicketsList = ({ tickets }) =>  {
+const TicketList = ({ tickets }) =>  {
     return (
       <ul>
         {tickets.map((ticket, idx) => {
           return (
             <li key={idx}>
-              <TicketsListItem ticket={ticket} />
+              <TicketListItem ticket={ticket} />
             </li>
           );
         })}
@@ -17,5 +16,4 @@ const TicketsList = ({ tickets }) =>  {
 }
 
 
-
-export default TicketsList;
+export default TicketList;

@@ -1,7 +1,6 @@
-.visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden {
+.visuallyHidden:not(:focus):not(:active),
+input[type="checkbox"].visuallyHidden {
     position: absolute;
-
     width: 1px;
     height: 1px;
     margin: -1px;
@@ -21,7 +20,7 @@ input[type="checkbox"].visually-hidden {
 }
 
 
-.tickets-filter-wrapper {
+.container {
     width: 232px;
     min-height: 252px;
     padding-top: 20px;
@@ -32,15 +31,12 @@ input[type="checkbox"].visually-hidden {
     border-radius: 5px;
 }
 
-.tickets-filter-title {
+.title {
     width: 192px;
     min-height: 12px;
     margin: 0;
     margin-left: 20px;
     margin-bottom: 10px;
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: 600;
     font-size: 12px;
     line-height: 12px;
     letter-spacing: 0.5px;
@@ -48,53 +44,49 @@ input[type="checkbox"].visually-hidden {
     color: #4A4A4A;
 }
 
-.tickets-filter-list-item {
+.item {
     width: 232px;
     min-height: 40px;
     margin: 0;
     padding-top: 10px;
     padding-left: 20px;
-    box-sizing: border-box;
 }
 
 
-.tickets-filter-list-item-label {
-    width: 112px;
+.itemLabel {
+    min-width: 112px;
     min-height: 20px;
     position: relative;
     padding-left: 30px;
-    font-family: "Open Sans";
-    font-style: normal;
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
     color: #4A4A4A;
 }
 
-.tickets-filter-list-item:hover,
-.tickets-filter-list-item:focus {
+.item:hover,
+.item:focus {
     cursor: pointer;
     background: #F1FCFF;
 }
 
-.tickets-filter-list-item-label input[type="checkbox"]+.checkbox-indicator {
+.itemLabel input[type="checkbox"]+.checkboxIndicator {
     position: absolute;
     top: 0;
     left: 0;
     width: 20px;
     height: 20px;
-    box-sizing: border-box;
     border: 1px solid #2196F3;
     border-radius: 2px;
 }
 
-.tickets-filter-list-item-label input[type="checkbox"]:focus+.checkbox-indicator {
+.itemLabel input[type="checkbox"]:focus+.checkboxIndicator {
     border-color: #2196F3;
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
 }
 
-.tickets-filter-list-item-label input[type="checkbox"]:checked+.checkbox-indicator::before {
+.itemLabel input[type="checkbox"]:checked+.checkboxIndicator::before {
     width: 12px;
     height: 8px;
     content: "";

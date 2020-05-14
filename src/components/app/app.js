@@ -1,23 +1,24 @@
 import React from "react";
 import "./app.css";
-import logo from "../../svg/Logo.svg";
-import TicketsListSortSettings from "../tickets-list-sort-settings";
-import TicketsListContainer from "../../containers/tickets-list-container";
-import TicketsListFilter from "../tickets-list-filter";
+import appLogo from "../../svg/Logo.svg";
+
+import TicketListContainer from "../../containers/ticket-list-container";
+import TicketListFilterContainer from "../../containers/ticket-list-filter-container";
+import TIcketListSortingTabsContainer from "../../containers/ticket-list-sorting-tabs-container";
 
 const App = () => {
   return (
-    <div className="app-wrapp">
+    <div className="app-container">
       <div className="app-logo-wrapper">
-        <img src={logo} alt="logo" />
+        <img src={appLogo} alt="logo" />
       </div>
       <div className="components-wrapper">
         <div>
-          <TicketsListFilter />
+          <TicketListFilterContainer />
         </div>
         <div>
-          <TicketsListSortSettings />
-          <TicketsListContainer />
+          <TIcketListSortingTabsContainer />
+          <TicketListContainer />
         </div>
       </div>
     </div>
