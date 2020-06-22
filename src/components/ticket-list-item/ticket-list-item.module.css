@@ -1,33 +1,24 @@
-ul {
+.list {
     padding: 0;
     margin:0;
-}
-
-ul li {
     list-style: none;
-}
-
-p {
-    padding: 0;
-    margin: 0
 }
 
 .container {
     width: 502px;
-    height: 184px;
-    padding: 20px 20px;
+    padding: 0 20px;
     padding-top: 26px;
+    padding-bottom: 10px;
     margin-bottom: 20px;
     background: rgb(255, 255, 255);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
 
-.header {
-    width: 432px;
+.priceAndLogoWrapper {
     display: flex;
     justify-content: space-between;
-
+    width: 432px;
 }
 
 .price {
@@ -51,15 +42,16 @@ p {
     display: flex;
     justify-content: space-between;
     width: 462px;
-    height: 39px;
     margin-bottom: 10px;
 }
 
-.routeTitle {
-    display: flex;
-    align-items: center;
+.route {
     width: 141px;
-    height: 18px;
+}
+
+.routeTitle {
+    padding: 0;
+    margin: 0;
     font-size: 12px;
     line-height: 18px;
     letter-spacing: 0.5px;
@@ -68,11 +60,8 @@ p {
 }
 
 .routeText {
-    display: flex;
-    align-items: center;
-    width: 141px;
-    height: 21px;
-    margin-bottom: 10px;
+    padding: 0;
+    margin: 0;
     font-size: 14px;
     line-height: 21px;
     color: #4A4A4A;

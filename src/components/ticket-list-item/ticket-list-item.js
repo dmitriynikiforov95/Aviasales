@@ -11,16 +11,18 @@ const TicketListItem = ({ ticket }) => {
 
   return (
     <div className={s.container}>
-      <div className={s.header}>
+      <div className={s.priceAndLogoWrapper}>
         <p className={s.price}>{ticketPrice} Р</p>
         <img
           className={s.logo}
+          width="110"
+          height="36"
           src={`//pics.avs.io/99/36/${carrier}.png`}
           alt="Company-logo"
         />
       </div>
 
-      <ul>
+      <ul className={s.list}>
         {segments.map(({duration, stops, date, origin, destination }, idx) => {
           const ticketDurationInHours = Math.floor(duration / 60);
           const ticketDurationInMinutes =

@@ -1,12 +1,8 @@
 import React from 'react';
 
-const {
-    Provider: AviasalesServiceProvider,
-    Consumer: AviasalesServiceConsumer
-} = React.createContext();
+const AviasalesServiceContext = React.createContext();
 
 export {
-    AviasalesServiceProvider,
-    AviasalesServiceConsumer
+    AviasalesServiceContext
 }
 

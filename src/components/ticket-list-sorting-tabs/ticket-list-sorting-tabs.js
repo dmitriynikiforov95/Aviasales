@@ -1,21 +1,32 @@
 import React from "react";
 import s from "./ticket-list-sorting-tabs.module.css";
+import classNames from 'classnames/bind';
 
-const TicketListSortingTabs = ({ activeBtn, setActiveSortingValue, sortingButtons}) => {
+const TicketListSortingTabs = ({
+  activeTab,
+  setStopsSortingValue,
+  sortingTabs,
+}) => {
+
+  const cx = classNames.bind(s);
 
   return (
     <div className={s.container}>
-      {sortingButtons.map(({ value, sortingValue }) => (
-        <button
-          type="button"
-          onClick={() => setActiveSortingValue(sortingValue)}
-          className={`${s.btn} " ${
-            activeBtn === sortingValue && s.activeBtn
-            }`}
-        >
-          {value}
-        </button>
-      ))}
+      {sortingTabs.map(({ tabValue, sortingValue }, idx) => {
+        return (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => setStopsSortingValue(sortingValue)}
+            className={cx({
+              btn: true,
+              activeBtn: activeTab === sortingValue
+            })}
+          >
+            {tabValue}
+          </button>
+        );
+      })}
     </div>
   );
 };

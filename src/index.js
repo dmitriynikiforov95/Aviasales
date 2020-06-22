@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import App from "./components/app";
-import ErrorBoundry from "./components/error-boundry";
+import ErrorBoundary from "./components/error-boundary";
 import AviasalesService from "./services/aviasales-service";
-import { AviasalesServiceProvider } from "./components/aviasales-service-context";
+import { AviasalesServiceContext} from "./components/aviasales-service-context";
 
 import store from "./store";
 
@@ -13,11 +13,11 @@ const aviasalesService = new AviasalesService();
 
 ReactDOM.render(
   <Provider store={store}>
-    <ErrorBoundry>
-      <AviasalesServiceProvider value={aviasalesService}>
+    <ErrorBoundary>
+      <AviasalesServiceContext.Provider value={aviasalesService}>
         <App />
-      </AviasalesServiceProvider>
-    </ErrorBoundry>
+      </AviasalesServiceContext.Provider>
+    </ErrorBoundary>
   </Provider>,
   document.getElementById("root")
 );

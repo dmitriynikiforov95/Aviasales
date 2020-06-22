@@ -1,6 +1,8 @@
 import React from "react";
+import "./normalize.css";
 import "./app.css";
-import appLogo from "../../svg/Logo.svg";
+
+import appLogo from "./Logo.png";
 
 import TicketListContainer from "../../containers/ticket-list-container";
 import TicketListFilterContainer from "../../containers/ticket-list-filter-container";
@@ -9,10 +11,10 @@ import TIcketListSortingTabsContainer from "../../containers/ticket-list-sorting
 const App = () => {
   return (
     <div className="app-container">
-      <div className="app-logo-wrapper">
-        <img src={appLogo} alt="logo" />
+      <div className="app-logo-container">
+        <img src={appLogo} width="82" height="89" alt="logo" />
       </div>
-      <div className="components-wrapper">
+      <div className="components-container">
         <div>
           <TicketListFilterContainer />
         </div>

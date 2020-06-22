@@ -14,29 +14,29 @@ input[type="checkbox"].visuallyHidden {
     overflow: hidden;
 }
 
-.tickets-filter-list {
+.list {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
-
 
 .container {
     width: 232px;
-    min-height: 252px;
     padding-top: 20px;
+    padding-bottom:10px;
     margin-right: 20px;
+    margin-top: 2px;
     box-sizing: border-box;
     background: #FFFFFF;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
 
 .title {
-    width: 192px;
-    min-height: 12px;
     margin: 0;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
     font-size: 12px;
     line-height: 12px;
     letter-spacing: 0.5px;
@@ -46,22 +46,21 @@ input[type="checkbox"].visuallyHidden {
 
 .item {
     width: 232px;
-    min-height: 40px;
-    margin: 0;
-    padding-top: 10px;
+    padding: 10px;
     padding-left: 20px;
 }
 
 
 .itemLabel {
+    position: relative;
     min-width: 112px;
     min-height: 20px;
-    position: relative;
     padding-left: 30px;
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
     color: #4A4A4A;
+    cursor: pointer;
 }
 
 .item:hover,
@@ -76,26 +75,35 @@ input[type="checkbox"].visuallyHidden {
     left: 0;
     width: 20px;
     height: 20px;
-    border: 1px solid #2196F3;
+    border: 1px solid #9abbce;
     border-radius: 2px;
 }
 
+.itemLabel input[type="checkbox"]:checked+.checkboxIndicator {
+    border: 1px solid #2196F3
+}
+
 .itemLabel input[type="checkbox"]:focus+.checkboxIndicator {
-    border-color: #2196F3;
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
+    outline: none;
+}
+
+.itemLabel input[type="checkbox"]+.checkboxIndicator::before {
+    width: 0px;
+    height: 0px;
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    opacity: 0;
+    background-image: url("../../svg/Shape.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
 }
 
 .itemLabel input[type="checkbox"]:checked+.checkboxIndicator::before {
     width: 12px;
     height: 8px;
-    content: "";
-    position: absolute;
-    top: 6px;
-    bottom: 6px;
-    right: 4px;
-    left: 3px;
-    background-image: url("../../svg/Shape.svg");
-    background-repeat: no-repeat;
-    background-position: 0 0;
+    opacity: 1;
+    transition: opacity 0.4s, width 0.4s , height 0.4s;
 }
+

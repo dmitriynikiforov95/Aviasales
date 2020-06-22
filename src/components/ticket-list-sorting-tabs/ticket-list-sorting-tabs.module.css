@@ -1,25 +1,35 @@
 .container {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 19px;
 }
 
 .btn {
   width: 252px;
-  min-height: 50px;
-  border: 1px solid #DFE5EC;
-  box-sizing: border-box;
-  font-family:inherit;
-  font-style: inherit;
-  font-weight: inherit;
+  padding-top: 17px;
+  padding-bottom: 13px;
+  font:inherit;
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background: #FFFFFF;
+  border: 1px solid #DFE5EC;
+  outline: none;
+  cursor:pointer;
+  transition: all 0.4s;
 }
 
 .activeBtn {
   background: #2196F3;
-  color: white;
-  outline: none;
+  color: #FFFFFF;
+}
+
+.btn:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.btn:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }

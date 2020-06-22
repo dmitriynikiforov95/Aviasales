@@ -67,15 +67,15 @@
   left: 100px;
 }
 .lds-magnify {
-  width: 100px !important;
-  height: 100px !important;
+  max-width: 100px !important;
+  min-height: 100px !important;
   margin: 0 auto;
   -webkit-transform: translate(-50px, -50px) scale(0.5) translate(50px, 50px);
   transform: translate(-50px, -50px) scale(0.5) translate(50px, 50px);
 }
 .lds-css.wrapper {
-  width: 502px;
-  height: 184px;
+  max-width: 502px;
+  min-height: 184px;
   padding: 20px 20px;
   padding-top:26px;
   margin-bottom:20px;

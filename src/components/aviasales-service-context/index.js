@@ -1,9 +1,7 @@
 import {
-    AviasalesServiceProvider,
-    AviasalesServiceConsumer
+    AviasalesServiceContext
 } from './aviasales-service-context.js';
 
 export {
-    AviasalesServiceProvider,
-    AviasalesServiceConsumer
+    AviasalesServiceContext
 }

@@ -12,21 +12,21 @@ const ticketsError = (error) => {
   }
 }
 
-const setStopsValue = (stops) => {
+const setStopsFilterValues = (stops) => {
   return {
-    type: "SET_STOPS_VALUE",
+    type: "SET_STOPS_FILTER_VALUE",
     payload: stops
   }
 }
 
-const setSortingValue = (value) => {
+const setStopsSortingValue = (sortingValue) => {
   return {
-    type: "SET_SORTING_VALUE",
-    payload: value
+    type: "SET_STOPS_SORTING_VALUE",
+    payload: sortingValue
   }
 }
 
-const fetchTickets = (dispatch, aviasalesService) => () => {
+const fetchTickets = (dispatch) => (aviasalesService) => {
   aviasalesService
     .getTickets()
     .then(res => {
@@ -39,6 +39,6 @@ const fetchTickets = (dispatch, aviasalesService) => () => {
 
 export {
   fetchTickets,
-  setStopsValue,
-  setSortingValue,
+  setStopsFilterValues,
+  setStopsSortingValue,
 }

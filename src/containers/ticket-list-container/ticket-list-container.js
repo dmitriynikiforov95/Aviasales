@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import TicketList from "../../components/ticket-list";
-import withAviasalesService from "../../components/hoc";
+import {AviasalesServiceContext} from "../../components/aviasales-service-context";
 import ErrorIndicator from "../../components/error-indicator";
 import Spinner from "../../components/spinner/";
 import { connect } from "react-redux";
-import {fetchTickets} from "../../actions";
+import { fetchTickets } from "../../actions";
 import { sortByPrice, sortByDuration } from "../../helpers";
 
-
-const TicketLstContainer = ({ tickets, isTicketsLoaded, ticketsLoadingError, fetchTickets }) => {
-
-  useEffect(
-    fetchTickets, []
-  )
+const TicketLstContainer = ({
+  tickets,
+  isTicketsLoaded,
+  ticketsLoadingError,
+  fetchTickets,
+}) => {
+  const aviasalesService = useContext(AviasalesServiceContext);
+  useEffect(() => fetchTickets(aviasalesService), [aviasalesService, fetchTickets]);
 
   const spinner = !isTicketsLoaded && !ticketsLoadingError ? <Spinner /> : null;
   const hasData = isTicketsLoaded || ticketsLoadingError;
@@ -20,82 +22,69 @@ const TicketLstContainer = ({ tickets, isTicketsLoaded, ticketsLoadingError, fet
   const content = hasData ? <TicketList tickets={tickets} /> : null;
 
   return (
-    <React.Fragment>
+    <>
       {errorMessage}
       {spinner}
       {content}
-    </React.Fragment>
+    </>
   );
+};
 
-}
-
-function sortAndFilter(tickets, stopsValue, sortingValue) {
-  let newTickets = tickets;
-
-  for (let ticket of newTickets) {
-    ticket.summDuration = function () {
-      return this.segments.reduce((prev, curr) => {
-        return prev + curr.duration;
-      }, 0);
-    };
-  }
+function sortAndFilterTickets(tickets, stopsFilterValues, stopsSortingValue) {
+  let newTickets = tickets.slice();
 
   // Фильтруем билеты по количеству пересадок в одну сторону
 
-  newTickets = stopsValue.all
-    ? tickets
-    : tickets.filter(({segments}) => {
-      for (let {stops} of segments) {
-        if (!stopsValue[stops.length]) {
+  if (!stopsFilterValues.all) {
+    newTickets = newTickets.filter(({ segments }) => {
+      for (let { stops } of segments) {
+        if (!stopsFilterValues[stops.length]) {
           return false;
         }
       }
       return true;
     });
+  }
 
   // Вариант фильтрации билетов по общему количеству пересадок
-  /* tickets.filter(ticket => {
+  /* newTickets.filter(ticket => {
         let ticketStopsQuantity = 0;
         for (let segment of ticket.segments) {
           ticketStopsQuantity += segment.stops.length;
         }
-        if (stopsValue[ticketStopsQuantity]) {
+        if (stopsFilterValues[ticketStopsQuantity]) {
           return true;
         }
         return false;
       }); */
 
-  if (sortingValue === "price") {
-    newTickets = newTickets.sort(sortByPrice);
-  } else if (sortingValue === "duration") {
-    newTickets = newTickets.sort(sortByDuration);
+  if (stopsSortingValue === "price") {
+    newTickets.sort(sortByPrice);
+  } else if (stopsSortingValue === "duration") {
+    newTickets.sort(sortByDuration);
   }
-  return newTickets.slice(0, 5);
+  return newTickets;
 }
 
 const mapStateToProps = ({
   tickets,
   isTicketsLoaded,
-  stopsValue,
-  sortingValue,
-  ticketsLoadingError
+  stopsFilterValues,
+  stopsSortingValue,
+  ticketsLoadingError,
 }) => {
   return {
-    tickets: sortAndFilter(tickets, stopsValue, sortingValue),
+    tickets: sortAndFilterTickets(tickets, stopsFilterValues, stopsSortingValue).slice(0, 5),
     isTicketsLoaded,
-    ticketsLoadingError
+    ticketsLoadingError,
   };
 };
 
-const mapDispatchToProps = (dispatch, {aviasalesService}) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTickets: fetchTickets(dispatch, aviasalesService),
+    fetchTickets: fetchTickets(dispatch),
   };
 };
 
-export default withAviasalesService(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(TicketLstContainer)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(TicketLstContainer);
+

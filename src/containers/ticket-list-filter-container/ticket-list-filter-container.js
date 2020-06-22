@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setStopsValue } from "../../actions";
+import { setStopsFilterValues } from "../../actions";
 import TicketListFilter from "../../components/ticket-list-filter";
 
 const TicketListFilterContainer = (props) => {
@@ -35,14 +35,14 @@ const TicketListFilterContainer = (props) => {
 
 };
 
-const mapStateToProps = ({ stopsValue }) => {
+const mapStateToProps = ({ stopsFilterValues }) => {
     return {
-        stopsValue
+        stopsFilterValues
     };
 };
 
 const mapDispatchToProps = {
-    setStopsValue
+    setStopsFilterValues
 };
 
 export default connect(
