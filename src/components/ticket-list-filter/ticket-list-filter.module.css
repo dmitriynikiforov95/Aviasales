@@ -65,7 +65,6 @@ input[type="checkbox"].visuallyHidden {
 
 .item:hover,
 .item:focus {
-    cursor: pointer;
     background: #F1FCFF;
 }
 

@@ -8,7 +8,7 @@ const initialStopsFilterValues = {
 
 const initialState = {
   tickets: [],
-  isTicketsLoaded: false,
+  isTicketsLoading: true,
   ticketsLoadingError: null,
   stopsFilterValues: initialStopsFilterValues,
   stopsSortingValue: "price",
@@ -39,12 +39,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         tickets: action.payload,
-        isTicketsLoaded: true,
+        isTicketsLoading: false,
       };
     case "FETCH_TICKETS_FAILURE":
       return {
         ...state,
-        isTicketsLoaded: false,
+        isTicketsLoading: false,
         ticketsLoadingError: action.payload,
       };
     case "SET_STOPS_FILTER_VALUE":

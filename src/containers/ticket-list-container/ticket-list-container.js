@@ -9,15 +9,15 @@ import { sortByPrice, sortByDuration } from "../../helpers";
 
 const TicketLstContainer = ({
   tickets,
-  isTicketsLoaded,
+  isTicketsLoading,
   ticketsLoadingError,
   fetchTickets,
 }) => {
   const aviasalesService = useContext(AviasalesServiceContext);
   useEffect(() => fetchTickets(aviasalesService), [aviasalesService, fetchTickets]);
 
-  const spinner = !isTicketsLoaded && !ticketsLoadingError ? <Spinner /> : null;
-  const hasData = isTicketsLoaded || ticketsLoadingError;
+  const spinner = isTicketsLoading && !ticketsLoadingError ? <Spinner /> : null;
+  const hasData = !(isTicketsLoading || ticketsLoadingError);
   const errorMessage = ticketsLoadingError ? <ErrorIndicator /> : null;
   const content = hasData ? <TicketList tickets={tickets} /> : null;
 
@@ -68,14 +68,14 @@ function sortAndFilterTickets(tickets, stopsFilterValues, stopsSortingValue) {
 
 const mapStateToProps = ({
   tickets,
-  isTicketsLoaded,
+  isTicketsLoading,
   stopsFilterValues,
   stopsSortingValue,
   ticketsLoadingError,
 }) => {
   return {
     tickets: sortAndFilterTickets(tickets, stopsFilterValues, stopsSortingValue).slice(0, 5),
-    isTicketsLoaded,
+    isTicketsLoading,
     ticketsLoadingError,
   };
 };
