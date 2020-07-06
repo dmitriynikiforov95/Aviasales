@@ -9,11 +9,11 @@ const TicketListSortingTabsContainer = ({
 }) => {
   const sortingTabs = [
     {
-      tabText: "Самый дешевый",
+      tabText: "cамый дешевый",
       sortingValue: "price",
     },
     {
-      tabText: "Самый быстрый",
+      tabText: "cамый быстрый",
       sortingValue: "duration",
     },
   ];
