@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import TicketList from "../../components/ticket-list";
-import {AviasalesServiceContext} from "../../components/aviasales-service-context";
+import { AviasalesServiceContext } from "../../components/aviasales-service-context";
 import ErrorIndicator from "../../components/error-indicator";
 import Spinner from "../../components/spinner/";
 import { connect } from "react-redux";
@@ -14,7 +14,11 @@ const TicketLstContainer = ({
   fetchTickets,
 }) => {
   const aviasalesService = useContext(AviasalesServiceContext);
-  useEffect(() => fetchTickets(aviasalesService), [aviasalesService, fetchTickets]);
+  
+  useEffect(() => fetchTickets(aviasalesService), [
+    aviasalesService,
+    fetchTickets,
+  ]);
 
   const spinner = isTicketsLoading && !ticketsLoadingError ? <Spinner /> : null;
   const hasData = !(isTicketsLoading || ticketsLoadingError);
@@ -30,24 +34,8 @@ const TicketLstContainer = ({
   );
 };
 
-function sortAndFilterTickets(tickets, stopsFilterValues, stopsSortingValue) {
-  let newTickets = tickets.slice();
-
-  // Фильтруем билеты по количеству пересадок в одну сторону
-
-  if (!stopsFilterValues.all) {
-    newTickets = newTickets.filter(({ segments }) => {
-      for (let { stops } of segments) {
-        if (!stopsFilterValues[stops.length]) {
-          return false;
-        }
-      }
-      return true;
-    });
-  }
-
-  // Вариант фильтрации билетов по общему количеству пересадок
-  /* newTickets.filter(ticket => {
+// Вариант фильтрации билетов по общему количеству пересадок
+/* newTickets.filter(ticket => {
         let ticketStopsQuantity = 0;
         for (let segment of ticket.segments) {
           ticketStopsQuantity += segment.stops.length;
@@ -58,13 +46,30 @@ function sortAndFilterTickets(tickets, stopsFilterValues, stopsSortingValue) {
         return false;
       }); */
 
-  if (stopsSortingValue === "price") {
-    newTickets.sort(sortByPrice);
-  } else if (stopsSortingValue === "duration") {
-    newTickets.sort(sortByDuration);
+const filterTickets = (tickets, stopsFilterValues) => {
+  if (!stopsFilterValues.all) {
+    return tickets.filter(({ segments }) => {
+      for (let { stops } of segments) {
+        if (!stopsFilterValues[stops.length]) {
+          return false;
+        }
+      }
+      return true;
+    });
   }
-  return newTickets;
-}
+  return tickets;
+};
+
+const sortTickets = (tickets, stopsSortingValue) => {
+  let sortedTickets = tickets.slice();
+
+  if (stopsSortingValue === "price") {
+    sortedTickets.sort(sortByPrice);
+  } else if (stopsSortingValue === "duration") {
+    sortedTickets.sort(sortByDuration);
+  }
+  return sortedTickets;
+};
 
 const mapStateToProps = ({
   tickets,
@@ -72,19 +77,17 @@ const mapStateToProps = ({
   stopsFilterValues,
   stopsSortingValue,
   ticketsLoadingError,
-}) => {
-  return {
-    tickets: sortAndFilterTickets(tickets, stopsFilterValues, stopsSortingValue).slice(0, 5),
-    isTicketsLoading,
-    ticketsLoadingError,
-  };
-};
+}) => ({
+  tickets: filterTickets(
+    sortTickets(tickets, stopsSortingValue),
+    stopsFilterValues
+  ).slice(0, 5),
+  isTicketsLoading,
+  ticketsLoadingError,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchTickets: fetchTickets(dispatch),
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  fetchTickets: fetchTickets(dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketLstContainer);
-

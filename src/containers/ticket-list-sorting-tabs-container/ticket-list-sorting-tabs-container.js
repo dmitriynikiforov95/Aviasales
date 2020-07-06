@@ -3,14 +3,17 @@ import { connect } from "react-redux";
 import { setStopsSortingValue } from "../../actions";
 import TicketListSortingTabs from "../../components/ticket-list-sorting-tabs";
 
-const TicketListSortingTabsContainer = ({ stopsSortingValue, setStopsSortingValue }) => {
+const TicketListSortingTabsContainer = ({
+  stopsSortingValue,
+  setStopsSortingValue,
+}) => {
   const sortingTabs = [
     {
-      tabValue: "Самый дешевый",
+      tabText: "Самый дешевый",
       sortingValue: "price",
     },
     {
-      tabValue: "Самый быстрый",
+      tabText: "Самый быстрый",
       sortingValue: "duration",
     },
   ];
@@ -24,11 +27,9 @@ const TicketListSortingTabsContainer = ({ stopsSortingValue, setStopsSortingValu
   );
 };
 
-const mapStateToProps = ({ stopsSortingValue }) => {
-  return {
-    stopsSortingValue,
-  };
-};
+const mapStateToProps = ({ stopsSortingValue }) => ({
+  stopsSortingValue,
+});
 
 const mapDispatchToProps = {
   setStopsSortingValue,

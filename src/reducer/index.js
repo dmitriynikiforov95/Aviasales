@@ -16,14 +16,16 @@ const initialState = {
 
 const setStopsFilterValues = (stopFilterValues, filter) => {
   if (filter === "all") {
-    return { ...initialStopsFilterValues};
+    return { ...initialStopsFilterValues };
   } else {
     const newStopsFilterValues = {
       ...stopFilterValues,
-      [filter]: !stopFilterValues[filter]
+      [filter]: !stopFilterValues[filter],
     };
 
-    newStopsFilterValues.all = !Object.values(newStopsFilterValues).includes(true);
+    newStopsFilterValues.all = !Object.values(newStopsFilterValues).includes(
+      true
+    );
 
     return newStopsFilterValues;
   }
@@ -46,7 +48,10 @@ const reducer = (state = initialState, action) => {
     case "SET_STOPS_FILTER_VALUE":
       return {
         ...state,
-        stopsFilterValues: setStopsFilterValues(state.stopsFilterValues, action.payload),
+        stopsFilterValues: setStopsFilterValues(
+          state.stopsFilterValues,
+          action.payload
+        ),
       };
     case "SET_STOPS_SORTING_VALUE":
       return {

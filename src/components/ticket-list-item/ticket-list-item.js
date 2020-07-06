@@ -2,16 +2,15 @@ import React from "react";
 import s from "./ticket-list-item.module.css";
 
 const TicketListItem = ({ ticket }) => {
-  
-  const { price, carrier, segments} = ticket;
+  const { price, carrier, segments } = ticket;
 
-  let transformTicketPrice =  String(price).split("");
-  transformTicketPrice.splice(-3, 0, " ");
-  let ticketPrice = transformTicketPrice.join("");
+  let transformedTicketPrice = String(price).split("");
+  transformedTicketPrice.splice(2, 0, " ");
+  const ticketPrice = transformedTicketPrice.join("");
 
   return (
     <div className={s.container}>
-      <div className={s.priceAndLogoWrapper}>
+      <div className={s.header}>
         <p className={s.price}>{ticketPrice} Р</p>
         <img
           className={s.logo}
@@ -23,10 +22,9 @@ const TicketListItem = ({ ticket }) => {
       </div>
 
       <ul className={s.list}>
-        {segments.map(({duration, stops, date, origin, destination }, idx) => {
+        {segments.map(({ duration, stops, date, origin, destination }, idx) => {
           const ticketDurationInHours = Math.floor(duration / 60);
-          const ticketDurationInMinutes =
-            duration - ticketDurationInHours * 60;
+          const ticketDurationInMinutes = duration - ticketDurationInHours * 60;
           const ticketDuration = `${ticketDurationInHours}ч ${ticketDurationInMinutes}м`;
           const ticketTransfers =
             stops.length > 1
@@ -55,15 +53,13 @@ const TicketListItem = ({ ticket }) => {
                     ).slice(-2)}`}
                   </p>
                 </div>
-                <div  className={s.route}>
+                <div className={s.route}>
                   <p className={s.routeTitle}>В пути</p>
                   <p className={s.routeText}>{ticketDuration}</p>
                 </div>
                 <div className={s.route}>
                   <p className={s.routeTitle}>{ticketTransfers}</p>
-                  <p className={s.routeText}>
-                    {stops.join(", ")}
-                  </p>
+                  <p className={s.routeText}>{stops.join(", ")}</p>
                 </div>
               </div>
             </li>

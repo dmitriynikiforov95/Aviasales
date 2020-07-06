@@ -3,33 +3,33 @@
   margin-bottom: 19px;
 }
 
-.btn {
+.tab {
   width: 252px;
   padding-top: 17px;
   padding-bottom: 13px;
-  font:inherit;
+  font: inherit;
   font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background: #FFFFFF;
-  border: 1px solid #DFE5EC;
+  background: #ffffff;
+  border: 1px solid #dfe5ec;
   outline: none;
-  cursor:pointer;
+  cursor: pointer;
   transition: all 0.4s;
 }
 
-.activeBtn {
-  background: #2196F3;
-  color: #FFFFFF;
+.activeTab {
+  background: #2196f3;
+  color: #ffffff;
 }
 
-.btn:first-child {
+.tab:first-child {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
 
-.btn:last-child {
+.tab:last-child {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }

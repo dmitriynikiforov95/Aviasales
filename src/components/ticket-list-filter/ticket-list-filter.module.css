@@ -1,108 +1,104 @@
 .visuallyHidden:not(:focus):not(:active),
 input[type="checkbox"].visuallyHidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-
-    white-space: nowrap;
-
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .container {
-    width: 232px;
-    padding-top: 20px;
-    padding-bottom:10px;
-    margin-right: 20px;
-    margin-top: 2px;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  width: 232px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  margin-top: 2px;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .title {
-    margin: 0;
-    margin-left: 20px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 12px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: #4A4A4A;
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #4a4a4a;
 }
 
 .item {
-    width: 232px;
-    padding: 10px;
-    padding-left: 20px;
+  width: 232px;
+  padding: 10px;
+  padding-left: 20px;
 }
 
-
 .itemLabel {
-    position: relative;
-    min-width: 112px;
-    min-height: 20px;
-    padding-left: 30px;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 20px;
-    color: #4A4A4A;
-    cursor: pointer;
+  position: relative;
+  min-width: 112px;
+  min-height: 20px;
+  padding-left: 30px;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  color: #4a4a4a;
+  cursor: pointer;
 }
 
 .item:hover,
 .item:focus {
-    background: #F1FCFF;
+  background: #f1fcff;
 }
 
-.itemLabel input[type="checkbox"]+.checkboxIndicator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #9abbce;
-    border-radius: 2px;
+.itemLabel input[type="checkbox"] + .checkboxIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #9abbce;
+  border-radius: 2px;
 }
 
-.itemLabel input[type="checkbox"]:checked+.checkboxIndicator {
-    border: 1px solid #2196F3
+.itemLabel input[type="checkbox"]:checked + .checkboxIndicator {
+  border: 1px solid #2196f3;
 }
 
-.itemLabel input[type="checkbox"]:focus+.checkboxIndicator {
-    outline: none;
+.itemLabel input[type="checkbox"]:focus + .checkboxIndicator {
+  outline: none;
 }
 
-.itemLabel input[type="checkbox"]+.checkboxIndicator::before {
-    width: 0px;
-    height: 0px;
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 3px;
-    opacity: 0;
-    background-image: url("../../svg/Shape.svg");
-    background-repeat: no-repeat;
-    background-position: 0 0;
+.itemLabel input[type="checkbox"] + .checkboxIndicator::before {
+  width: 0px;
+  height: 0px;
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  opacity: 0;
+  background-image: url("../../svg/Shape.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 
-.itemLabel input[type="checkbox"]:checked+.checkboxIndicator::before {
-    width: 12px;
-    height: 8px;
-    opacity: 1;
-    transition: opacity 0.4s, width 0.4s , height 0.4s;
+.itemLabel input[type="checkbox"]:checked + .checkboxIndicator::before {
+  width: 12px;
+  height: 8px;
+  opacity: 1;
+  transition: opacity 0.4s, width 0.4s, height 0.4s;
 }
-
