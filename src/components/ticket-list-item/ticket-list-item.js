@@ -6,12 +6,12 @@ const TicketListItem = ({ ticket }) => {
 
   let transformedTicketPrice = String(price).split("");
   transformedTicketPrice.splice(2, 0, " ");
-  const ticketPrice = transformedTicketPrice.join("");
+  transformedTicketPrice = transformedTicketPrice.join("");
 
   return (
     <div className={s.container}>
       <div className={s.header}>
-        <p className={s.price}>{ticketPrice} Р</p>
+        <p className={s.price}>{transformedTicketPrice} Р</p>
         <img
           className={s.logo}
           width="110"
@@ -26,7 +26,7 @@ const TicketListItem = ({ ticket }) => {
           const ticketDurationInHours = Math.floor(duration / 60);
           const ticketDurationInMinutes = duration - ticketDurationInHours * 60;
           const ticketDuration = `${ticketDurationInHours}ч ${ticketDurationInMinutes}м`;
-          const ticketTransfers =
+          const ticketStops =
             stops.length > 1
               ? `${stops.length} пересадки`
               : stops.length > 0
@@ -58,7 +58,7 @@ const TicketListItem = ({ ticket }) => {
                   <p className={s.routeText}>{ticketDuration}</p>
                 </div>
                 <div className={s.route}>
-                  <p className={s.routeTitle}>{ticketTransfers}</p>
+                  <p className={s.routeTitle}>{ticketStops}</p>
                   <p className={s.routeText}>{stops.join(", ")}</p>
                 </div>
               </div>

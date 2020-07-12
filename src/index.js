@@ -5,12 +5,10 @@ import 'react-app-polyfill/stable';
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-
 import App from "./components/app";
 import ErrorBoundary from "./components/error-boundary";
-import AviasalesService from "./services/aviasales-service";
 import { AviasalesServiceContext} from "./components/aviasales-service-context";
-
+import AviasalesService from "./services/aviasales-service";
 import store from "./store";
 
 const aviasalesService = new AviasalesService();

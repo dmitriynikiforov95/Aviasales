@@ -1,11 +1,12 @@
 import React, { useEffect, useContext } from "react";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { fetchTickets } from "../../actions";
+import { sortByPrice, sortByDuration } from "../../helpers";
 import TicketList from "../../components/ticket-list";
 import { AviasalesServiceContext } from "../../components/aviasales-service-context";
 import ErrorIndicator from "../../components/error-indicator";
 import Spinner from "../../components/spinner/";
-import { connect } from "react-redux";
-import { fetchTickets } from "../../actions";
-import { sortByPrice, sortByDuration } from "../../helpers";
 
 const TicketLstContainer = ({
   tickets,
@@ -14,7 +15,7 @@ const TicketLstContainer = ({
   fetchTickets,
 }) => {
   const aviasalesService = useContext(AviasalesServiceContext);
-  
+
   useEffect(() => fetchTickets(aviasalesService), [
     aviasalesService,
     fetchTickets,
@@ -46,7 +47,7 @@ const TicketLstContainer = ({
         return false;
       }); */
 
-const filterTickets = (tickets, stopsFilterValues) => {
+const filterTickets = (stopsFilterValues) => (tickets) => {
   if (!stopsFilterValues.all) {
     return tickets.filter(({ segments }) => {
       for (let { stops } of segments) {
@@ -60,7 +61,7 @@ const filterTickets = (tickets, stopsFilterValues) => {
   return tickets;
 };
 
-const sortTickets = (tickets, stopsSortingValue) => {
+const sortTickets = (stopsSortingValue) => (tickets) => {
   let sortedTickets = tickets.slice();
 
   if (stopsSortingValue === "price") {
@@ -78,10 +79,10 @@ const mapStateToProps = ({
   stopsSortingValue,
   ticketsLoadingError,
 }) => ({
-  tickets: filterTickets(
-    sortTickets(tickets, stopsSortingValue),
-    stopsFilterValues
-  ).slice(0, 5),
+  tickets: compose(
+    filterTickets(stopsFilterValues),
+    sortTickets(stopsSortingValue)
+  )(tickets).slice(0, 5),
   isTicketsLoading,
   ticketsLoadingError,
 });

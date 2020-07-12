@@ -17,18 +17,20 @@ const initialState = {
 const setStopsFilterValues = (stopFilterValues, filter) => {
   if (filter === "all") {
     return { ...initialStopsFilterValues };
-  } else {
-    const newStopsFilterValues = {
-      ...stopFilterValues,
-      [filter]: !stopFilterValues[filter],
-    };
-
-    newStopsFilterValues.all = !Object.values(newStopsFilterValues).includes(
-      true
-    );
-
-    return newStopsFilterValues;
   }
+  
+  const newStopsFilterValues = {
+    ...stopFilterValues,
+    [filter]: !stopFilterValues[filter],
+  };
+
+  const isEveryStopsValuesFalse = !Object.values(newStopsFilterValues).includes(
+    true
+  );
+
+  newStopsFilterValues.all = isEveryStopsValuesFalse;
+
+  return newStopsFilterValues;
 };
 
 const reducer = (state = initialState, action) => {

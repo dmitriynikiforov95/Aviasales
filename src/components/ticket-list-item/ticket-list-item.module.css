@@ -1,15 +1,15 @@
-.list {
-  padding: 0;
+.list {  
   margin: 0;
+  padding: 0;
   list-style: none;
 }
 
 .container {
   width: 502px;
+  margin-bottom: 20px;
   padding: 0 20px;
   padding-top: 26px;
   padding-bottom: 10px;
-  margin-bottom: 20px;
   background: rgb(255, 255, 255);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -24,9 +24,9 @@
 .price {
   display: flex;
   align-items: center;
-  padding: 0;
   margin: 0;
   margin-bottom: 26px;
+  padding: 0;
   font-size: 24px;
   line-height: 24px;
   color: #2196f3;
@@ -50,8 +50,8 @@
 }
 
 .routeTitle {
-  padding: 0;
   margin: 0;
+  padding: 0;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.5px;
@@ -60,8 +60,8 @@
 }
 
 .routeText {
-  padding: 0;
   margin: 0;
+  padding: 0;
   font-size: 14px;
   line-height: 21px;
   color: #4a4a4a;

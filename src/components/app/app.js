@@ -1,12 +1,9 @@
 import React from "react";
-
-import "./app.css";
-
-import appLogo from "./app-logo.png";
-
 import TicketListContainer from "../../containers/ticket-list-container";
 import TicketListFilterContainer from "../../containers/ticket-list-filter-container";
-import TIcketListSortingTabsContainer from "../../containers/ticket-list-sorting-tabs-container";
+import TicketListSortingTabsContainer from "../../containers/ticket-list-sorting-tabs-container";
+import "./app.css";
+import appLogo from "./app-logo.png";
 
 const App = () => (
   <div className="app-container">
@@ -18,7 +15,7 @@ const App = () => (
         <TicketListFilterContainer />
       </div>
       <div>
-        <TIcketListSortingTabsContainer />
+        <TicketListSortingTabsContainer />
         <TicketListContainer />
       </div>
     </div>
