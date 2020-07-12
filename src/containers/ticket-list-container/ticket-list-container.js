@@ -47,19 +47,17 @@ const TicketLstContainer = ({
         return false;
       }); */
 
-const filterTickets = (stopsFilterValues) => (tickets) => {
-  if (!stopsFilterValues.all) {
-    return tickets.filter(({ segments }) => {
-      for (let { stops } of segments) {
-        if (!stopsFilterValues[stops.length]) {
-          return false;
+const filterTickets = (stopsFilterValues) => (tickets) =>
+  stopsFilterValues.all
+    ? tickets
+    : tickets.filter(({ segments }) => {
+        for (let { stops } of segments) {
+          if (!stopsFilterValues[stops.length]) {
+            return false;
+          }
         }
-      }
-      return true;
-    });
-  }
-  return tickets;
-};
+        return true;
+      });
 
 const sortTickets = (stopsSortingValue) => (tickets) => {
   let sortedTickets = tickets.slice();
